@@ -89,8 +89,8 @@ git clone [https://github.com/YOUR_GITHUB_USERNAME/MerchantBackend.git](https://
 cd MerchantBackend
 將 YOUR_GITHUB_USERNAME 替換為您的 GitHub 使用者名稱。
 
-2. 資料庫設定
-配置連接字串：
+### 2. 資料庫設定
+###配置連接字串：
 開啟 appsettings.json 檔案，在 ConnectionStrings 區塊中，將 YOUR_SERVER_NAME 替換為您的 SQL Server 實例名稱。
 
 JSON
@@ -113,7 +113,7 @@ Bash
 dotnet ef database update
 這會自動執行所有待處理的遷移 (InitialIdentitySetup, AddAuditLogTable, AddUserProfileTable, AddCategoriesAndTagsTables, AddProductsAndRelations)。
 
-3. 種子初始數據 🌱
+### 3. 種子初始數據 🌱
 專案啟動時，會自動運行 DbInitializer 來創建預設的角色 (Manager, Editor, User) 和一個初始的 Manager 帳號。
 
 重要： 初始 Manager 帳號的電子郵件是 admin@example.com。
@@ -125,7 +125,7 @@ C#
 // SeedData/DbInitializer.cs 中的片段
 string managerUserEmail = "admin@example.com";
 string managerPassword = "YourSecurePassword123!"; // <-- 請務必修改此密碼！
-4. 運行應用程式 ▶️
+### 4. 運行應用程式 ▶️
 在專案的根目錄下，執行以下命令：
 
 Bash
