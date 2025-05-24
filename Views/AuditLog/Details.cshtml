@@ -1,0 +1,66 @@
+﻿@model MerchantBackend.Models.AuditLog
+@using MerchantBackend.Controllers // <--- 引入 AuditLogController 命名空間
+@{
+    ViewData["Title"] = "日誌詳情 - " + Model.Id;
+}
+
+<h1>日誌詳情</h1>
+
+<div>
+    <h4>稽核日誌 ID: @Model.Id</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ActorUsername)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ActorUsername) (@Html.DisplayFor(model => model.ActorId))
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ActionType)
+        </dt>
+        <dd class="col-sm-9">
+            @AuditLogController.GetLocalizedActionType(Model.ActionType) @* <--- 修改這裡 *@
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.TargetEntity)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TargetEntity)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.TargetEntityId)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.TargetEntityId)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Outcome)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Outcome)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.Details))
+            {
+                    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto;"><code>@Model.Details</code></pre>
+            }
+            else
+            {
+                    <span>無詳細資訊</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+</div>

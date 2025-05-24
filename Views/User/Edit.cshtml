@@ -1,0 +1,87 @@
+﻿@model MerchantBackend.Models.UserEditViewModel
+
+@{
+    ViewData["Title"] = "編輯使用者 - " + Model.DisplayName;
+}
+
+<h1>編輯使用者 - @Model.DisplayName</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="DisplayName" class="form-label"></label>
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" asp-for="LockoutEnabled" class="form-check-input" />
+                <label asp-for="LockoutEnabled" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3" id="lockoutEndDiv" style="display: @(Model.LockoutEnabled ? "block" : "none");">
+                <label asp-for="LockoutEnd" class="form-label"></label>
+                <input asp-for="LockoutEnd" class="form-control" type="datetime-local" />
+                <span asp-validation-for="LockoutEnd" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">指派角色</label>
+                @foreach (var role in Model.AvailableRoles)
+                {
+                    <div class="form-check">
+                        <input type="checkbox" name="SelectedRoles" value="@role.Value" class="form-check-input"
+                               id="@($"role-{role.Value}")" @(Model.SelectedRoles.Contains(role.Value) ? "checked" : "") />
+                        <label class="form-check-label" for="@($"role-{role.Value}")">@role.Text</label>
+                    </div>
+                }
+            </div>
+
+            <h4 class="mt-4">重設密碼</h4>
+            <p class="text-muted">如不需修改密碼，請將以下欄位留空。</p>
+            <div class="mb-3">
+                <label asp-for="NewPassword" class="form-label"></label>
+                <input asp-for="NewPassword" class="form-control" type="password" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ConfirmNewPassword" class="form-label"></label>
+                <input asp-for="ConfirmNewPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">儲存變更</button>
+                <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function () {
+            $('#LockoutEnabled').change(function () {
+                if (this.checked) {
+                    $('#lockoutEndDiv').show();
+                } else {
+                    $('#lockoutEndDiv').hide();
+                    $('#LockoutEnd').val('');
+                }
+            });
+        });
+    </script>
+}

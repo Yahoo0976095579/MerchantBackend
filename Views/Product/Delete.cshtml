@@ -1,0 +1,78 @@
+﻿@model MerchantBackend.Models.ProductListViewModel
+
+@{
+    ViewData["Title"] = "刪除商品 - " + Model.Name;
+}
+
+<h1>刪除商品</h1>
+
+<h3 class="text-danger">您確定要邏輯刪除此商品嗎？此操作將使商品無法再被顯示和編輯。</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.MainImagePath)
+        </dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.MainImagePath))
+            {
+                <img src="@Model.MainImagePath" alt="商品主圖" style="width: 100px; height: 100px; object-fit: cover;" />
+            }
+            else
+            {
+                <img src="/images/placeholder.png" alt="無圖片" style="width: 100px; height: 100px; object-fit: cover;" />
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description) @* <--- 這裡現在有 Description 了 *@
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description) @* <--- 直接顯示 Model.Description *@
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+        <dd class="col-sm-9">
+            <span class="badge @(Model.IsActive ? "bg-success" : "bg-warning")">
+                @(Model.IsActive ? "上架中" : "已下架")
+            </span>
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Tags)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">確認邏輯刪除</button>
+        <a asp-action="Index" class="btn btn-secondary">取消</a>
+    </form>
+</div>

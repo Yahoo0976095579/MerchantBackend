@@ -1,0 +1,76 @@
+﻿@model MerchantBackend.Models.ProductCreateViewModel
+
+@{
+    ViewData["Title"] = "新增商品";
+}
+
+<h1>新增商品</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" enctype="multipart/form-data">
+            @* <--- 注意：需要 enctype="multipart/form-data" 才能上傳檔案 *@
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Stock" class="form-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedCategoryId" class="form-label"></label>
+                <select asp-for="SelectedCategoryId" class="form-select" asp-items="ViewBag.AvailableCategories">
+                    <option value="">請選擇分類</option>
+                </select>
+                <span asp-validation-for="SelectedCategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedTagIds" class="form-label"></label>
+                <select asp-for="SelectedTagIds" class="form-select" multiple="multiple" asp-items="ViewBag.AvailableTags">
+                    @* multiple="multiple" 允許選擇多個標籤 *@
+                </select>
+                <span asp-validation-for="SelectedTagIds" class="text-danger"></span>
+                <small class="form-text text-muted">按住 Ctrl 鍵可選擇多個標籤。</small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ImageFiles" class="form-label"></label>
+                <input type="file" asp-for="ImageFiles" class="form-control" multiple accept="image/*" /> @* <--- 允許選擇多個圖片 *@
+                <span asp-validation-for="ImageFiles" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">創建商品</button>
+                <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,107 @@
+﻿@model MerchantBackend.Models.Products.Product // <--- 注意 Model 類型是 Product 實體
+@{
+    ViewData["Title"] = "商品詳情 - " + Model.Name;
+}
+
+<h1>商品詳情</h1>
+
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+        <dd class="col-sm-9">
+            <span class="badge @(Model.IsActive ? "bg-success" : "bg-warning")">
+                @(Model.IsActive ? "上架中" : "已下架")
+            </span>
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Category!.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ProductTags)
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.ProductTags != null && Model.ProductTags.Any())
+            {
+                @string.Join(", ", Model.ProductTags.Select(pt => pt.Tag!.Name))
+            }
+            else
+            {
+                    <span>無</span>
+            }
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.UpdatedAt)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.UpdatedAt)
+        </dd>
+    </dl>
+
+    <h4 class="mt-4">商品圖片</h4>
+    @if (Model.Images != null && Model.Images.Any())
+    {
+            <div class="row">
+            @foreach (var image in Model.Images)
+            {
+                        <div class="col-md-3 mb-3">
+                            <div class="card shadow-sm">
+                                <img src="@image.ImagePath" class="card-img-top" style="height: 200px; object-fit: cover;" alt="商品圖片" />
+                                <div class="card-body text-center">
+                            @if (image.IsMain)
+                            {
+                                            <span class="badge bg-primary">主圖</span>
+                            }
+                                    <small class="text-muted d-block">排序: @image.SortOrder</small>
+                                </div>
+                            </div>
+                        </div>
+            }
+            </div>
+    }
+    else
+    {
+            <p class="text-muted">此商品沒有圖片。</p>
+    }
+
+</div>
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">編輯</a>
+    <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+</div>

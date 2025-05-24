@@ -1,0 +1,127 @@
+﻿@model MerchantBackend.Models.ProductEditViewModel
+
+@{
+    ViewData["Title"] = "編輯商品 - " + Model.Name;
+}
+
+<h1>編輯商品 - @Model.Name</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Stock" class="form-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedCategoryId" class="form-label"></label>
+                <select asp-for="SelectedCategoryId" class="form-select" asp-items="ViewBag.AvailableCategories">
+                    <option value="">請選擇分類</option>
+                </select>
+                <span asp-validation-for="SelectedCategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedTagIds" class="form-label"></label>
+                <select asp-for="SelectedTagIds" class="form-select" multiple="multiple" asp-items="ViewBag.AvailableTags">
+                    @* asp-items 會自動處理 SelectedTagIds 的預選 *@
+                </select>
+                <span asp-validation-for="SelectedTagIds" class="text-danger"></span>
+                <small class="form-text text-muted">按住 Ctrl 鍵可選擇多個標籤。</small>
+            </div>
+
+            <h4 class="mt-4">現有圖片管理</h4>
+            @if (Model.ExistingImages != null && Model.ExistingImages.Any())
+            {
+                <div class="row">
+                    @foreach (var item in Model.ExistingImages)
+                    {
+                        <div class="col-md-3 mb-3">
+                            <div class="card shadow-sm">
+                                <img src="@item.ImagePath" class="card-img-top" style="height: 150px; object-fit: cover;" alt="商品圖片" />
+                                <div class="card-body">
+                                    <input type="hidden" name="ExistingImages[@Model.ExistingImages.IndexOf(item)].Id" value="@item.Id" />
+                                    <input type="hidden" name="ExistingImages[@Model.ExistingImages.IndexOf(item)].ImagePath" value="@item.ImagePath" />
+                                    <input type="hidden" name="ExistingImages[@Model.ExistingImages.IndexOf(item)].SortOrder" value="@item.SortOrder" />
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" asp-for="MainImageId" value="@item.Id" id="isMain_@item.Id"> @* <--- 關鍵修正：移除 @(Model.MainImageId == item.Id ? "checked" : "") *@
+                                        <label class="form-check-label" for="isMain_@item.Id">
+                                            主圖
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ExistingImages[@Model.ExistingImages.IndexOf(item)].IsMarkedForDeletion" value="true" @(item.IsMarkedForDeletion ? "checked" : "")>
+                                        <label class="form-check-label">
+                                            刪除
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">目前沒有現有圖片。</p>
+            }
+
+            <div class="mb-3">
+                <label asp-for="NewImageFiles" class="form-label"></label>
+                <input type="file" asp-for="NewImageFiles" class="form-control" multiple accept="image/*" />
+                <span asp-validation-for="NewImageFiles" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">儲存變更</button>
+                <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // 不需要複雜的 JS 邏輯了，因為 radio button 是原生單選
+        // 只需要確保 checkbox 的 value 是 true
+        $(document).ready(function() {
+            $('input[type="checkbox"][name$=".IsMarkedForDeletion"]').each(function() {
+                if ($(this).is(':checked')) {
+                    $(this).val('true');
+                } else {
+                    $(this).val('false'); // 確保未勾選時也傳遞 false
+                }
+            });
+            $('input[type="checkbox"][name$=".IsMarkedForDeletion"]').change(function() {
+                $(this).val($(this).is(':checked') ? 'true' : 'false');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model MerchantBackend.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "使用者詳細資訊 - " + Model.DisplayName;
+}
+
+<h1>使用者詳細資訊</h1>
+
+<div>
+    <h4>@Model.DisplayName (@Model.Email)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Roles)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Roles)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.AccountStatus)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.AccountStatus)
+        </dd>
+        @if (Model.LockoutEnd.HasValue && Model.LockoutEnd.Value > DateTimeOffset.UtcNow)
+        {
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.LockoutEnd)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.LockoutEnd) (UTC)
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">編輯</a>
+    <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+</div>

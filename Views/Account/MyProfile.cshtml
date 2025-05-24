@@ -1,0 +1,91 @@
+﻿@model MerchantBackend.Models.MyProfileViewModel
+@using Microsoft.AspNetCore.Identity
+@using MerchantBackend.Models // 引入 UserProfile
+@using MerchantBackend.Data // 引入 ApplicationDbContext
+@inject UserManager<IdentityUser> UserManager // 注入 UserManager
+@inject ApplicationDbContext Context // 注入 DbContext
+
+@{
+    ViewData["Title"] = "我的帳戶";
+}
+
+<h1>我的帳戶</h1>
+
+<hr />
+
+@* <--- 新增這裡：顯示成功訊息 *@
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@* <--- 新增結束 *@
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>個人資訊</h4>
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.DisplayName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-4">
+                角色
+            </dt>
+            <dd class="col-sm-8">
+                @{
+                    var currentUser = await UserManager.GetUserAsync(User);
+                    if (currentUser != null)
+                    {
+                        var roles = await UserManager.GetRolesAsync(currentUser);
+                        <span>@string.Join(", ", roles)</span>
+                    }
+                    else
+                    {
+                        <span>無法載入角色</span>
+                    }
+                }
+            </dd>
+        </dl>
+
+        <h4 class="mt-4">修改密碼</h4>
+        <p>請輸入當前密碼和新密碼。</p>
+        <form asp-action="MyProfile" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="CurrentPassword" class="form-label"></label>
+                <input asp-for="CurrentPassword" class="form-control" type="password" />
+                <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewPassword" class="form-label"></label>
+                <input asp-for="NewPassword" class="form-control" type="password" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ConfirmNewPassword" class="form-label"></label>
+                <input asp-for="ConfirmNewPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmNewPassword" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">儲存密碼</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

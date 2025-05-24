@@ -1,0 +1,33 @@
+﻿@model MerchantBackend.Models.Category
+
+@{
+    ViewData["Title"] = "分類詳情 - " + Model.Name;
+}
+
+<h1>分類詳情</h1>
+
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Manager"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">編輯</a>
+    }
+    <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+</div>

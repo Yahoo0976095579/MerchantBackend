@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MerchantBackend.Models.UserViewModel>
+
+@{
+    ViewData["Title"] = "使用者管理";
+    var currentPage = (int)ViewData["CurrentPage"];
+    var totalPages = (int)ViewBag.TotalPages;
+    var currentFilter = ViewData["CurrentFilter"];
+}
+
+<h1>使用者管理</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">新增使用者</a>
+</p>
+
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" value="@currentFilter" class="form-control" placeholder="搜尋顯示名稱或登入電子郵件..." /> @* <--- 修改這裡 *@
+        <button type="submit" class="btn btn-outline-secondary">搜尋</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">清除</a>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DisplayName)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Roles)</th>
+            <th>@Html.DisplayNameFor(model => model.AccountStatus)</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.DisplayName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Roles)</td>
+                <td>@Html.DisplayFor(modelItem => item.AccountStatus)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info">編輯</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">詳細</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- 分頁控制項 -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
+            <a class="page-link" asp-action="Index" asp-route-pageNumber="@(currentPage - 1)" asp-route-searchString="@currentFilter">上一頁</a>
+        </li>
+        @for (int i = 1; i <= totalPages; i++)
+        {
+            <li class="page-item @(i == currentPage ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@i" asp-route-searchString="@currentFilter">@i</a>
+            </li>
+        }
+        <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
+            <a class="page-link" asp-action="Index" asp-route-pageNumber="@(currentPage + 1)" asp-route-searchString="@currentFilter">下一頁</a>
+        </li>
+    </ul>
+</nav>
