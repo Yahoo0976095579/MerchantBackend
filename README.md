@@ -87,14 +87,15 @@
 ```bash
 git clone [https://github.com/YOUR_GITHUB_USERNAME/MerchantBackend.git](https://github.com/YOUR_GITHUB_USERNAME/MerchantBackend.git)
 cd MerchantBackend
+```
 將 YOUR_GITHUB_USERNAME 替換為您的 GitHub 使用者名稱。
 
 ### 2. 資料庫設定
-###配置連接字串：
+配置連接字串：
 開啟 appsettings.json 檔案，在 ConnectionStrings 區塊中，將 YOUR_SERVER_NAME 替換為您的 SQL Server 實例名稱。
 
 JSON
-
+```bash
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=MerchantBackendDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
@@ -103,6 +104,7 @@ JSON
     "ProductImageUploadFolder": "images/products" // 商品圖片儲存路徑
   }
 }
+```
 提示： 如果使用 SQL Server 驗證，請將 Trusted_Connection=True 替換為 User ID=YourUser;Password=YourPassword;。
 
 執行資料庫遷移：
@@ -121,16 +123,18 @@ dotnet ef database update
 請修改 SeedData/DbInitializer.cs 中的 managerPassword 變數，設定一個符合 Identity 策略的強密碼，並記住它。
 
 C#
-
+```bash
 // SeedData/DbInitializer.cs 中的片段
 string managerUserEmail = "admin@example.com";
 string managerPassword = "YourSecurePassword123!"; // <-- 請務必修改此密碼！
+```
 ### 4. 運行應用程式 ▶️
 在專案的根目錄下，執行以下命令：
 
-Bash
+```bash
 
 dotnet run
+```
 應用程式將會在 https://localhost:PORT (具體端口號會顯示在終端機中) 啟動。
 
 使用指南 📖
