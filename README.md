@@ -1,230 +1,178 @@
-# °Ó®a«á¥xºŞ²z¨t²Î (Merchant Backend Management System)
+ï»¿# å•†å®¶å¾Œå°ç®¡ç†ç³»çµ± (Merchant Backend Management System)
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)
 ![SQL Server](https://img.shields.io/badge/SQL_Server-grey.svg)
 ![ASP.NET Core MVC](https://img.shields.io/badge/ASP.NET_Core_MVC-purple.svg)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## ±M®×Â²¤¶
+## å°ˆæ¡ˆç°¡ä»‹
 
-³o¬O¤@­Ó¨Ï¥Î ASP.NET Core 8 MVC ¶}µoªººî¦X©Ê«á¥xºŞ²z¨t²Î¡A¦®¦b¬°¹q¤l°Ó°È¥­¥x´£¨Ñ¨Ï¥ÎªÌ¡B°Ó«~¡B¤ÀÃş©M¼ĞÅÒªººŞ²z¥\¯à¡C±M®×³]­pµÛ­«©ó¦w¥ş©Ê¡B¥i½]®Ö©Ê (Auditability) ©MºŞ²z­û¾Ş§@ªº«K§Q©Ê¡C
+é€™æ˜¯ä¸€å€‹ä½¿ç”¨ **ASP.NET Core 8 MVC** é–‹ç™¼çš„ç¶œåˆæ€§å¾Œå°ç®¡ç†ç³»çµ±ï¼Œæ—¨åœ¨ç‚ºé›»å­å•†å‹™å¹³å°æä¾›ä½¿ç”¨è€…ã€å•†å“ã€åˆ†é¡å’Œæ¨™ç±¤çš„ç®¡ç†åŠŸèƒ½ã€‚å°ˆæ¡ˆè¨­è¨ˆè‘—é‡æ–¼**å®‰å…¨æ€§**ã€**å¯ç¨½æ ¸æ€§ (Auditability)** å’Œç®¡ç†å“¡æ“ä½œçš„**ä¾¿åˆ©æ€§**ã€‚
 
-¨t²Î±Ä¥ÎÅŞ¿è§R°£ (Soft Delete) µ¦²¤¨Ó«O¯d¾ú¥v¼Æ¾Ú¡A¨Ã³q¹L¸ÔºÉªº½]®Ö¤é»x°O¿ı©Ò¦³ÃöÁä¾Ş§@¡A½T«O¼Æ¾Úªº¥i°l·¹©Ê¡C
+ç³»çµ±æ¡ç”¨**é‚è¼¯åˆªé™¤ (Soft Delete)** ç­–ç•¥ä¾†ä¿ç•™æ­·å²æ•¸æ“šï¼Œä¸¦é€šéè©³ç›¡çš„**ç¨½æ ¸æ—¥èªŒ**è¨˜éŒ„æ‰€æœ‰é—œéµæ“ä½œï¼Œç¢ºä¿æ•¸æ“šçš„å¯è¿½æº¯æ€§ã€‚
 
-## ¥D­n¥\¯à
+---
 
-*   **¦w¥ş»{ÃÒ»P±ÂÅv**
-    *   °ò©ó ASP.NET Core Identity ªº¨­¥÷ÅçÃÒ©M¨¤¦âºŞ²z¡C
-    *   «á¥xµn¤J¶È­­ `Manager` (ºŞ²z­û) ©M `Editor` (½s¿èªÌ) ¨¤¦â¡C
-    *   ºë²Óªº¨¤¦âÅv­­±±¨î (`Manager` ¾Ö¦³³Ì°ªÅv­­¡A`Editor` ±Mª`©ó°Ó«~¬ÛÃöºŞ²z)¡C
-    *   ©Ò¦³±K½X¿ù»~°T®§¤w¤¤¤å¤Æ¡C
+## ä¸»è¦åŠŸèƒ½ ğŸš€
 
-*   **«á¥x»öªíªO**
-    *   ´£¨Ñµn¤J«áª½Æ[ªº·§Äı­¶­±¡AÅã¥ÜÁ`¨Ï¥ÎªÌ¼Æ¡BÁ`°Ó«~¼Æ¡B¤W¬[¤¤°Ó«~¼Æ¡BÁ`¤ÀÃş¼Æ¡BÁ`¼ĞÅÒ¼Æ©M¤µ¤éµn¤J¦¸¼Æµ¥ÃöÁä²Î­p¼Æ¾Ú¡C
+* **å®‰å…¨èªè­‰èˆ‡æˆæ¬Š**
+    * åŸºæ–¼ **ASP.NET Core Identity** çš„èº«ä»½é©—è­‰å’Œè§’è‰²ç®¡ç†ã€‚
+    * å¾Œå°ç™»å…¥åƒ…é™ `Manager` (ç®¡ç†å“¡) å’Œ `Editor` (ç·¨è¼¯è€…) è§’è‰²ã€‚
+    * ç²¾ç´°çš„è§’è‰²æ¬Šé™æ§åˆ¶ (`Manager` æ“æœ‰æœ€é«˜æ¬Šé™ï¼Œ`Editor` å°ˆæ³¨æ–¼å•†å“ç›¸é—œç®¡ç†)ã€‚
+    * æ‰€æœ‰å¯†ç¢¼éŒ¯èª¤è¨Šæ¯å·²**ä¸­æ–‡åŒ–**ã€‚
 
-*   **«á¥x¨Ï¥ÎªÌºŞ²z (¶È­­ Manager)**
-    *   **¨Ï¥ÎªÌ¦Cªí¡G** Åã¥Ü©Ò¦³«á¥x¨Ï¥ÎªÌ (IdentityUser) ªº¦Cªí¡A¥]§tÅã¥Ü¦WºÙ¡B¹q¤l¶l¥ó¡B¨¤¦â©M±b¤áª¬ºA¡C
-    *   **·s¼W¨Ï¥ÎªÌ¡G** Manager ¥i¥H¬°·s¥[¤Jªº«á¥x¦¨­û³Ğ«Ø±b¸¹¡A³]©wªì©l±K½X¡A¨Ã«ü¬£ `Manager`¡B`Editor` ©Î `User` ¨¤¦â¡C
-    *   **½s¿è¨Ï¥ÎªÌ¡G** Manager ¥i¥H­×§ï¨Ï¥ÎªÌÅã¥Ü¦WºÙ¡B¹q¤l¶l¥ó¡B±b¤áÂê©w/¸ÑÂêª¬ºA¡A¨Ã½Õ¾ã¨ä¨¤¦â¡C¦P®É´£¨Ñª½±µ­«³]±K½X¥\¯à¡C
-    *   **¿W¥ßÅã¥Ü¦WºÙ¡G** ¨Ï¥ÎªÌ¤¶­±Åã¥Üªº¦WºÙ (`DisplayName`) Àx¦s¦b¿W¥ßªº `UserProfile` ¸ê®Æªí¤¤¡A¤£¼vÅT Identity ®Ö¤ßªº `UserName` (»P Email «O«ù¤@­P¥Î©óµn¤J)¡C
+* **å¾Œå°å„€è¡¨æ¿** ğŸ“Š
+    * æä¾›ç™»å…¥å¾Œç›´è§€çš„æ¦‚è¦½é é¢ï¼Œé¡¯ç¤ºç¸½ä½¿ç”¨è€…æ•¸ã€ç¸½å•†å“æ•¸ã€ä¸Šæ¶ä¸­å•†å“æ•¸ã€ç¸½åˆ†é¡æ•¸ã€ç¸½æ¨™ç±¤æ•¸å’Œä»Šæ—¥ç™»å…¥æ¬¡æ•¸ç­‰é—œéµçµ±è¨ˆæ•¸æ“šã€‚
 
-*   **­Ó¤H±b¤áºŞ²z (Manager »P Editor)**
-    *   ¤wµn¤Jªº«á¥x¨Ï¥ÎªÌ¥i¥H¬d¬İ¦Û¤vªº°ò¥»¸ê°T¡C
-    *   ¦w¥ş­×§ï¦Û¤vªº±K½X¡A¨Ã¦³¦¨¥\/¥¢±Ñ°T®§´£¥Ü¡C
+* **å¾Œå°ä½¿ç”¨è€…ç®¡ç† (åƒ…é™ `Manager`)** ğŸ‘¥
+    * **ä½¿ç”¨è€…åˆ—è¡¨ï¼š** é¡¯ç¤ºæ‰€æœ‰å¾Œå°ä½¿ç”¨è€… (IdentityUser) çš„åˆ—è¡¨ï¼ŒåŒ…å«é¡¯ç¤ºåç¨±ã€é›»å­éƒµä»¶ã€è§’è‰²å’Œå¸³æˆ¶ç‹€æ…‹ã€‚
+    * **æ–°å¢ä½¿ç”¨è€…ï¼š** `Manager` å¯ä»¥ç‚ºæ–°åŠ å…¥çš„å¾Œå°æˆå“¡å‰µå»ºå¸³è™Ÿï¼Œè¨­å®šåˆå§‹å¯†ç¢¼ï¼Œä¸¦æŒ‡æ´¾ `Manager`ã€`Editor` æˆ– `User` è§’è‰²ã€‚
+    * **ç·¨è¼¯ä½¿ç”¨è€…ï¼š** `Manager` å¯ä»¥ä¿®æ”¹ä½¿ç”¨è€…é¡¯ç¤ºåç¨±ã€é›»å­éƒµä»¶ã€å¸³æˆ¶é–å®š/è§£é–ç‹€æ…‹ï¼Œä¸¦èª¿æ•´å…¶è§’è‰²ã€‚åŒæ™‚æä¾›ç›´æ¥é‡è¨­å¯†ç¢¼åŠŸèƒ½ã€‚
+    * **ç¨ç«‹é¡¯ç¤ºåç¨±ï¼š** ä½¿ç”¨è€…ä»‹é¢é¡¯ç¤ºçš„åç¨± (`DisplayName`) å„²å­˜åœ¨ç¨ç«‹çš„ `UserProfile` è³‡æ–™è¡¨ä¸­ï¼Œä¸å½±éŸ¿ Identity æ ¸å¿ƒçš„ `UserName` (èˆ‡ Email ä¿æŒä¸€è‡´ç”¨æ–¼ç™»å…¥)ã€‚
 
-*   **°Ó«~¤ÀÃşºŞ²z (Manager §¹¾ã CRUD¡AEditor ¬d¬İ)**
-    *   ¹ï°Ó«~ªº¤ÀÃş¶i¦æ«Ø¥ß¡BÅª¨ú¡B§ó·s¡B§R°£ (CRUD) ¾Ş§@¡C
-    *   ¥]§t¤ÀÃş¦WºÙ©M´y­z¡C
+* **å€‹äººå¸³æˆ¶ç®¡ç† (`Manager` èˆ‡ `Editor`)** ğŸ‘¤
+    * å·²ç™»å…¥çš„å¾Œå°ä½¿ç”¨è€…å¯ä»¥æŸ¥çœ‹è‡ªå·±çš„åŸºæœ¬è³‡è¨Šã€‚
+    * å®‰å…¨ä¿®æ”¹è‡ªå·±çš„å¯†ç¢¼ï¼Œä¸¦æœ‰æˆåŠŸ/å¤±æ•—è¨Šæ¯æç¤ºã€‚
 
-*   **°Ó«~¼ĞÅÒºŞ²z (Manager §¹¾ã CRUD¡AEditor ¬d¬İ)**
-    *   ¹ï°Ó«~ªº¼ĞÅÒ¶i¦æ«Ø¥ß¡BÅª¨ú¡B§ó·s¡B§R°£ (CRUD) ¾Ş§@¡C
-    *   ¥]§t¼ĞÅÒ¦WºÙ¡C
+* **å•†å“åˆ†é¡ç®¡ç† (`Manager` å®Œæ•´ CRUDï¼Œ`Editor` æŸ¥çœ‹)** ğŸ“‚
+    * å°å•†å“çš„åˆ†é¡é€²è¡Œå»ºç«‹ã€è®€å–ã€æ›´æ–°ã€åˆªé™¤ (CRUD) æ“ä½œã€‚
+    * åŒ…å«åˆ†é¡åç¨±å’Œæè¿°ã€‚
 
-*   **°Ó«~ºŞ²z (Manager »P Editor §¹¾ã CRUD)**
-    *   **°Ó«~¦Cªí¡G** Åã¥Ü©Ò¦³¥¼ÅŞ¿è§R°£ªº°Ó«~¡A¥]§t¦WºÙ¡B»ù®æ¡B®w¦s¡B¤W¬[ª¬ºA¡B¥D¹Ï¡B©ÒÄİ¤ÀÃş©M¼ĞÅÒ¡C¤ä´©·j´M¡B¤ÀÃş/¼ĞÅÒ¿z¿ï©M¤W¬[ª¬ºA¿z¿ï¡C
-    *   **·s¼W°Ó«~¡G** ¤¹³\·s¼W°Ó«~¡A¥]§t°ò¥»Äİ©Ê¡B¿ï¾Ü¤ÀÃş©M¦h­Ó¼ĞÅÒ¡A¨Ã¤ä´©¤W¶Ç¦h±i¹Ï¤ù¨Ã³]©w¥D¹Ï¡C
-    *   **½s¿è°Ó«~¡G** ¥ş­±½s¿è°Ó«~¸ê°T¡A¥]¬AºŞ²z²{¦³¹Ï¤ù (§R°£¡B³]©w¥D¹Ï)¡B¤W¶Ç·s¹Ï¤ù¡A¥H¤Î­×§ï¤ÀÃş©M¼ĞÅÒ¡C
-    *   **ÅŞ¿è§R°£°Ó«~¡G** ±N°Ó«~¼Ğ°O¬° `IsDeleted = true`¡A¦Ó«Dª«²z§R°£¡A¥H«O¯d¼Æ¾Ú©M°l·¹©Ê¡C
+* **å•†å“æ¨™ç±¤ç®¡ç† (`Manager` å®Œæ•´ CRUDï¼Œ`Editor` æŸ¥çœ‹)** ğŸ·ï¸
+    * å°å•†å“çš„æ¨™ç±¤é€²è¡Œå»ºç«‹ã€è®€å–ã€æ›´æ–°ã€åˆªé™¤ (CRUD) æ“ä½œã€‚
+    * åŒ…å«æ¨™ç±¤åç¨±ã€‚
 
-*   **½]®Ö¤é»x**
-    *   ¸Ô²Ó°O¿ı©Ò¦³­«­nªº«á¥x¾Ş§@ (¨Ï¥ÎªÌ³Ğ«Ø/½s¿è¡B°Ó«~ CRUD¡B¤ÀÃş CRUD¡B¼ĞÅÒ CRUD¡Bµn¤J/µn¥X¡B±K½X­×§ïµ¥)¡C
-    *   ´£¨Ñºô­¶¤¶­±¨Ñ `Manager` ¨¤¦â¬d¬İ¡B·j´M¡B¿z¿ï (¨Ì¾Ş§@Ãş«¬¡B¥Ø¼Ğ¹êÅé¡B®É¶¡½d³ò) ©M¤À­¶ÂsÄı¤é»x¡C
-    *   ©Ò¦³¾Ş§@Ãş«¬¤w¤¤¤å¤ÆÅã¥Ü¡C
+* **å•†å“ç®¡ç† (`Manager` èˆ‡ `Editor` å®Œæ•´ CRUD)** ğŸ›ï¸
+    * **å•†å“åˆ—è¡¨ï¼š** é¡¯ç¤ºæ‰€æœ‰æœªé‚è¼¯åˆªé™¤çš„å•†å“ï¼ŒåŒ…å«åç¨±ã€åƒ¹æ ¼ã€åº«å­˜ã€ä¸Šæ¶ç‹€æ…‹ã€ä¸»åœ–ã€æ‰€å±¬åˆ†é¡å’Œæ¨™ç±¤ã€‚æ”¯æ´æœå°‹ã€åˆ†é¡/æ¨™ç±¤ç¯©é¸å’Œä¸Šæ¶ç‹€æ…‹ç¯©é¸ã€‚
+    * **æ–°å¢å•†å“ï¼š** å…è¨±æ–°å¢å•†å“ï¼ŒåŒ…å«åŸºæœ¬å±¬æ€§ã€é¸æ“‡åˆ†é¡å’Œå¤šå€‹æ¨™ç±¤ï¼Œä¸¦æ”¯æ´ä¸Šå‚³å¤šå¼µåœ–ç‰‡ä¸¦è¨­å®šä¸»åœ–ã€‚
+    * **ç·¨è¼¯å•†å“ï¼š** å…¨é¢ç·¨è¼¯å•†å“è³‡è¨Šï¼ŒåŒ…æ‹¬ç®¡ç†ç¾æœ‰åœ–ç‰‡ (åˆªé™¤ã€è¨­å®šä¸»åœ–)ã€ä¸Šå‚³æ–°åœ–ç‰‡ï¼Œä»¥åŠä¿®æ”¹åˆ†é¡å’Œæ¨™ç±¤ã€‚
+    * **é‚è¼¯åˆªé™¤å•†å“ï¼š** å°‡å•†å“æ¨™è¨˜ç‚º `IsDeleted = true`ï¼Œè€Œéç‰©ç†åˆªé™¤ï¼Œä»¥ä¿ç•™æ•¸æ“šå’Œè¿½æº¯æ€§ã€‚
 
-*   **¨Ï¥ÎªÌ¤¶­±»PÅéÅç**
-    *   ±Ä¥Î Bootstrap 5 ºc«Ø¡A´£¨ÑÅTÀ³¦¡³]­p¡A¾AÀ³¤£¦P³]³Æ¤Ø¤o¡C
-    *   ©Ò¦³ªí³æ§¡¨ã³Æ«È¤áºİ©M¦øªA¾¹ºİÅçÃÒ¡C
-    *   ²Î¤@ªº¾Ş§@¦¨¥\»P¥¢±Ñ°T®§´£¥Ü¡C
+* **ç¨½æ ¸æ—¥èªŒ** ğŸ“œ
+    * è©³ç´°è¨˜éŒ„æ‰€æœ‰é‡è¦çš„å¾Œå°æ“ä½œ (ä½¿ç”¨è€…å‰µå»º/ç·¨è¼¯ã€å•†å“ CRUDã€åˆ†é¡ CRUDã€æ¨™ç±¤ CRUDã€ç™»å…¥/ç™»å‡ºã€å¯†ç¢¼ä¿®æ”¹ç­‰)ã€‚
+    * æä¾›ç¶²é ä»‹é¢ä¾› `Manager` è§’è‰²æŸ¥çœ‹ã€æœå°‹ã€ç¯©é¸ (ä¾æ“ä½œé¡å‹ã€ç›®æ¨™å¯¦é«”ã€æ™‚é–“ç¯„åœ) å’Œåˆ†é ç€è¦½æ—¥èªŒã€‚
+    * æ‰€æœ‰æ“ä½œé¡å‹å·²**ä¸­æ–‡åŒ–**é¡¯ç¤ºã€‚
 
-## §Ş³N´Ì
+* **ä½¿ç”¨è€…ä»‹é¢èˆ‡é«”é©—** âœ¨
+    * æ¡ç”¨ **Bootstrap 5** æ§‹å»ºï¼Œæä¾›éŸ¿æ‡‰å¼è¨­è¨ˆï¼Œé©æ‡‰ä¸åŒè¨­å‚™å°ºå¯¸ã€‚
+    * æ‰€æœ‰è¡¨å–®å‡å…·å‚™å®¢æˆ¶ç«¯å’Œä¼ºæœå™¨ç«¯é©—è­‰ã€‚
+    * çµ±ä¸€çš„æ“ä½œæˆåŠŸèˆ‡å¤±æ•—è¨Šæ¯æç¤ºã€‚
 
-*   **¶}µo®Ø¬[¡G** ASP.NET Core 8 (MVC)
-*   **¼Æ¾Ú®w¡G** SQL Server (¨Ï¥Î Entity Framework Core)
-*   **¨­¥÷ÅçÃÒ»P±ÂÅv¡G** ASP.NET Core Identity
-*   **«eºİ UI¡G** Bootstrap 5
-*   **¨ä¥L®w¡G**
-    *   jQuery & jQuery Validation (¥Î©ó«È¤áºİªí³æÅçÃÒ)
-    *   Newtonsoft.Json (¥Î©ó½]®Ö¤é»x¤¤ªº¸Ô²Ó¸ê°T§Ç¦C¤Æ)
+---
 
-## ¶}©l¨Ï¥Î
+## æŠ€è¡“æ£§ ğŸ› ï¸
 
-### ¥ı¨M±ø¥ó
+* **é–‹ç™¼æ¡†æ¶ï¼š** ASP.NET Core 8 (MVC)
+* **æ•¸æ“šåº«ï¼š** SQL Server (ä½¿ç”¨ Entity Framework Core)
+* **èº«ä»½é©—è­‰èˆ‡æˆæ¬Šï¼š** ASP.NET Core Identity
+* **å‰ç«¯ UIï¼š** Bootstrap 5
+* **å…¶ä»–åº«ï¼š**
+    * jQuery & jQuery Validation (ç”¨æ–¼å®¢æˆ¶ç«¯è¡¨å–®é©—è­‰)
+    * Newtonsoft.Json (ç”¨æ–¼ç¨½æ ¸æ—¥èªŒä¸­çš„è©³ç´°è³‡è¨Šåºåˆ—åŒ–)
 
-¦b¥»¦a¹B¦æ¦¹±M®×¡A±z»İ­n¦w¸Ë¡G
+---
 
-*   [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-*   [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (©Î SQL Server LocalDB/Express)
-*   (¥i¿ï) [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/zh-tw/sql/ssms/download-sql-server-management-studio-ssms) ©Î [Azure Data Studio](https://docs.microsoft.com/zh-tw/sql/azure-data-studio/) ¥HºŞ²z¸ê®Æ®w
+## é–‹å§‹ä½¿ç”¨ ğŸ
 
-### §J¶©Àx¦s®w
+### å…ˆæ±ºæ¢ä»¶
+
+åœ¨æœ¬åœ°é‹è¡Œæ­¤å°ˆæ¡ˆï¼Œæ‚¨éœ€è¦å®‰è£ï¼š
+
+* [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+* [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (æˆ– SQL Server LocalDB/Express)
+* (å¯é¸) [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/zh-tw/sql/ssms/download-sql-server-management-studio-ssms) æˆ– [Azure Data Studio](https://docs.microsoft.com/zh-tw/sql/azure-data-studio/) ä»¥ç®¡ç†è³‡æ–™åº«
+
+### 1. å…‹éš†å„²å­˜åº«
 
 ```bash
-git clone https://github.com/±zªºGitHub¨Ï¥ÎªÌ¦WºÙ/MerchantBackend.git
+git clone [https://github.com/YOUR_GITHUB_USERNAME/MerchantBackend.git](https://github.com/YOUR_GITHUB_USERNAME/MerchantBackend.git)
 cd MerchantBackend
+å°‡ YOUR_GITHUB_USERNAME æ›¿æ›ç‚ºæ‚¨çš„ GitHub ä½¿ç”¨è€…åç¨±ã€‚
 
-¸ê®Æ®w³]©w
+2. è³‡æ–™åº«è¨­å®š
+é…ç½®é€£æ¥å­—ä¸²ï¼š
+é–‹å•Ÿ appsettings.json æª”æ¡ˆï¼Œåœ¨ ConnectionStrings å€å¡Šä¸­ï¼Œå°‡ YOUR_SERVER_NAME æ›¿æ›ç‚ºæ‚¨çš„ SQL Server å¯¦ä¾‹åç¨±ã€‚
 
-°t¸m³s±µ¦r¦ê¡G
-¶}±Ò appsettings.json ÀÉ®×¡A¦b ConnectionStrings °Ï¶ô¤¤¡A±N YOUR_SERVER_NAME ´À´«¬°±zªº SQL Server ¹ê¨Ò¦WºÙ¡C
+JSON
 
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=MerchantBackendDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
   },
   "FileUploadSettings": {
-    "ProductImageUploadFolder": "images/products" // °Ó«~¹Ï¤ùÀx¦s¸ô®|
+    "ProductImageUploadFolder": "images/products" // å•†å“åœ–ç‰‡å„²å­˜è·¯å¾‘
   }
 }
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Json
-IGNORE_WHEN_COPYING_END
+æç¤ºï¼š å¦‚æœä½¿ç”¨ SQL Server é©—è­‰ï¼Œè«‹å°‡ Trusted_Connection=True æ›¿æ›ç‚º User ID=YourUser;Password=YourPassword;ã€‚
 
-´£¥Ü¡G ¦pªG¨Ï¥Î SQL Server ÅçÃÒ¡A½Ğ±N Trusted_Connection=True ´À´«¬° User ID=YourUser;Password=YourPassword;¡C
+åŸ·è¡Œè³‡æ–™åº«é·ç§»ï¼š
+åœ¨å°ˆæ¡ˆçš„æ ¹ç›®éŒ„ä¸‹ (å³ MerchantBackend.csproj æ‰€åœ¨è³‡æ–™å¤¾)ï¼ŒåŸ·è¡Œä»¥ä¸‹å‘½ä»¤ä¾†å‰µå»ºæ‰€æœ‰è³‡æ–™åº«è¡¨å’Œé—œè¯ï¼š
 
-°õ¦æ¸ê®Æ®w¾E²¾¡G
-¦b±M®×ªº®Ú¥Ø¿ı¤U (§Y MerchantBackend.csproj ©Ò¦b¸ê®Æ§¨)¡A°õ¦æ¥H¤U©R¥O¨Ó³Ğ«Ø©Ò¦³¸ê®Æ®wªí©MÃöÁp¡G
+Bash
 
 dotnet ef database update
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Bash
-IGNORE_WHEN_COPYING_END
+é€™æœƒè‡ªå‹•åŸ·è¡Œæ‰€æœ‰å¾…è™•ç†çš„é·ç§» (InitialIdentitySetup, AddAuditLogTable, AddUserProfileTable, AddCategoriesAndTagsTables, AddProductsAndRelations)ã€‚
 
-³o·|¦Û°Ê°õ¦æ©Ò¦³«İ³B²zªº¾E²¾ (InitialIdentitySetup, AddAuditLogTable, AddUserProfileTable, AddCategoriesAndTagsTables, AddProductsAndRelations)¡C
+3. ç¨®å­åˆå§‹æ•¸æ“š ğŸŒ±
+å°ˆæ¡ˆå•Ÿå‹•æ™‚ï¼Œæœƒè‡ªå‹•é‹è¡Œ DbInitializer ä¾†å‰µå»ºé è¨­çš„è§’è‰² (Manager, Editor, User) å’Œä¸€å€‹åˆå§‹çš„ Manager å¸³è™Ÿã€‚
 
-ºØ¤lªì©l¼Æ¾Ú¡G
-±M®×±Ò°Ê®É¡A·|¦Û°Ê¹B¦æ DbInitializer ¨Ó³Ğ«Ø¹w³]ªº¨¤¦â (Manager, Editor, User) ©M¤@­Óªì©lªº Manager ±b¸¹¡C
+é‡è¦ï¼š åˆå§‹ Manager å¸³è™Ÿçš„é›»å­éƒµä»¶æ˜¯ admin@example.comã€‚
 
-­«­n¡G ªì©l Manager ±b¸¹ªº¹q¤l¶l¥ó¬O admin@example.com¡C
+è«‹ä¿®æ”¹ SeedData/DbInitializer.cs ä¸­çš„ managerPassword è®Šæ•¸ï¼Œè¨­å®šä¸€å€‹ç¬¦åˆ Identity ç­–ç•¥çš„å¼·å¯†ç¢¼ï¼Œä¸¦è¨˜ä½å®ƒã€‚
 
-½Ğ­×§ï SeedData/DbInitializer.cs ¤¤ªº managerPassword ÅÜ¼Æ¡A³]©w¤@­Ó²Å¦X Identity µ¦²¤ªº±j±K½X¡A¨Ã°O¦í¥¦¡C
-
-// SeedData/DbInitializer.cs ¤¤ªº¤ù¬q
-string managerUserEmail = "admin@example.com";
-string managerPassword = "YourSecurePassword123!"; // <-- ½Ğ°È¥²­×§ï¦¹±K½X¡I
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
 C#
-IGNORE_WHEN_COPYING_END
-¹B¦æÀ³¥Îµ{¦¡
 
-¦b±M®×ªº®Ú¥Ø¿ı¤U¡A°õ¦æ¥H¤U©R¥O¡G
+// SeedData/DbInitializer.cs ä¸­çš„ç‰‡æ®µ
+string managerUserEmail = "admin@example.com";
+string managerPassword = "YourSecurePassword123!"; // <-- è«‹å‹™å¿…ä¿®æ”¹æ­¤å¯†ç¢¼ï¼
+4. é‹è¡Œæ‡‰ç”¨ç¨‹å¼ â–¶ï¸
+åœ¨å°ˆæ¡ˆçš„æ ¹ç›®éŒ„ä¸‹ï¼ŒåŸ·è¡Œä»¥ä¸‹å‘½ä»¤ï¼š
+
+Bash
 
 dotnet run
-IGNORE_WHEN_COPYING_START
-content_copy
-download
-Use code with caution.
-Bash
-IGNORE_WHEN_COPYING_END
+æ‡‰ç”¨ç¨‹å¼å°‡æœƒåœ¨ https://localhost:PORT (å…·é«”ç«¯å£è™Ÿæœƒé¡¯ç¤ºåœ¨çµ‚ç«¯æ©Ÿä¸­) å•Ÿå‹•ã€‚
 
-À³¥Îµ{¦¡±N·|¦b https://localhost:PORT (¨ãÅéºİ¤f¸¹·|Åã¥Ü¦b²×ºİ¾÷¤¤) ±Ò°Ê¡C
+ä½¿ç”¨æŒ‡å— ğŸ“–
+è¨ªå•å¾Œå°ï¼š
+åœ¨ç€è¦½å™¨ä¸­è¨ªå• https://localhost:PORTã€‚å¦‚æœæœªç™»å…¥ï¼Œæ‚¨å°‡è¢«è‡ªå‹•é‡å®šå‘åˆ°ç™»å…¥é é¢ã€‚
 
-¨Ï¥Î«ü«n
+ç™»å…¥ï¼š
+ä½¿ç”¨æ‚¨åœ¨ DbInitializer.cs ä¸­è¨­å®šçš„ Manager å¸³è™Ÿ (é è¨­ admin@example.com) å’Œå¯†ç¢¼ç™»å…¥ã€‚
 
-³X°İ«á¥x¡G
-¦bÂsÄı¾¹¤¤³X°İ https://localhost:PORT¡C¦pªG¥¼µn¤J¡A±z±N³Q¦Û°Ê­«©w¦V¨ìµn¤J­¶­±¡C
-
-µn¤J¡G
-¨Ï¥Î±z¦b DbInitializer.cs ¤¤³]©wªº Manager ±b¸¹ (¹w³] admin@example.com) ©M±K½Xµn¤J¡C
-
-¨¤¦â»PÅv­­¡G
-
-Manager (ºŞ²z­û)¡G ¾Ö¦³©Ò¦³«á¥x¥\¯àªº§¹¾ãÅv­­ (¨Ï¥ÎªÌºŞ²z¡B°Ó«~ CRUD¡B¤ÀÃş CRUD¡B¼ĞÅÒ CRUD¡B½]®Ö¤é»x¬d¬İ¡B­Ó¤H±b¤áºŞ²z)¡C
-
-Editor (½s¿èªÌ)¡G ¾Ö¦³°Ó«~ºŞ²z¡B¤ÀÃş¬d¬İ¡B¼ĞÅÒ¬d¬İ¡B­Ó¤H±b¤áºŞ²zªºÅv­­¡CµLªk³X°İ¨Ï¥ÎªÌºŞ²z©M½]®Ö¤é»x¡C
-
-User (¤@¯ë¨Ï¥ÎªÌ)¡G µLªkµn¤J¦¹«á¥x¨t²Î¡C
-
-±M®×µ²ºc·§Äı
-
-Controllers/: ASP.NET Core MVC ±±¨î¾¹¡A³B²z HTTP ½Ğ¨D©M·~°ÈÅŞ¿è¡C
-
-Models/: ¥]§t©Ò¦³ ViewModels (¨Ò¦p UserViewModel, ProductCreateViewModel µ¥) ©M¤@¨Ç³q¥Î¹êÅé (AuditLog, UserProfile)¡C
-
-Models/Products/: ¥]§t°Ó«~¬ÛÃöªº¹êÅé¼Ò«¬ (Product, ProductImage, Category, Tag, ProductTag)¡C
-
-Data/: ¥]§t¸ê®Æ®w¤W¤U¤å (ApplicationDbContext) ©M Entity Framework Core ¾E²¾ÀÉ®×¡C
-
-Services/: ¥]§tÀ³¥Îµ{¦¡ªA°È¡A¨Ò¦p IAuditService ©M AuditService¡C
-
-Identity/: ¥]§tÂX¥Rªº ApplicationUser (¦pªG¥¼¨Ó¨M©wÂX¥R IdentityUser)¡C
-
-IdentityLocalizations/: ¥]§t¦Û©w¸qªº IdentityErrorDescriber¡A¥Î©ó¤¤¤å¤Æ Identity ªº¿ù»~°T®§¡C
-
-SeedData/: ¥]§t DbInitializer Ãş§O¡A¥Î©ó¸ê®Æ®wªºªì©l¼Æ¾ÚºØ¤l¡C
-
-Views/: ¥]§t Razor View ÀÉ®×¡A¥Î©ó´è¬V¨Ï¥ÎªÌ¤¶­±¡C
-
-wwwroot/: ÀRºAÀÉ®×¦s©ñ³B (CSS, JavaScript, ¹Ï¤ù¡A¨Ò¦p images/products)¡C
-
-appsettings.json: À³¥Îµ{¦¡°t¸mÀÉ®× (¸ê®Æ®w³s±µ¦r¦ê¡BÀÉ®×¤W¶Ç¸ô®|µ¥)¡C
-
-¥¼¨Ó¥i¯àªºÂX®i (Roadmap)
-
-¨Ï¥ÎªÌÂsÄıºô¯¸ (¹q°Ó«e¥x)¡G
-
-°ò©ó Web API¡G «Ø¥ß¿W¥ßªº ASP.NET Core Web API ±M®×¡A´£¨Ñ¸ê®Æµ¹«eºİ®Ø¬[ (React, Angular, Vue.js µ¥) ºc«Øªº¹q°Ó«e¥x¡C
-
-JWT ¨­¥÷ÅçÃÒ¡G ¬°«eºİ API ¹ê²{°ò©ó JWT ªº¨­¥÷ÅçÃÒ©M±ÂÅv¡C
-
-¹q¤l¶l¥óÅçÃÒ»P³qª¾¡G
-
-¬°¨Ï¥ÎªÌµù¥U¡B±K½X­«³]¡B¹q¤l¶l¥óÅÜ§óµ¥¾Ş§@¶°¦¨¹q¤l¶l¥óµo°e¥\¯à¡C
-
-²Ó²É«×Åv­­ºŞ²z¡G
-
-°ò©óÁn©ú (Claims) ©Îµ¦²¤ (Policies) ¹ê²{§ó²Ó½oªºÅv­­±±¨î¡C
-
-°Ó«~¦hÅÜ¼Æ/SKU ºŞ²z¡G
-
-¤ä´©¤£¦PÃC¦â¡B¤Ø¤oµ¥°Ó«~ÅÜ¼Æªº®w¦sºŞ²z¡C
-
-­q³æºŞ²z¨t²Î¡G
-
-²K¥[­q³æ³Ğ«Ø¡B³B²z¡B°lÂÜ¡B°h´Úµ¥¥\¯à¡C
-
-«È¤áªA°È¼Ò²Õ¡G
-
-ºŞ²z«È¤á¿Ô¸ß¡B§ë¶Dµ¥¡C
-
-³øªí»P¼Æ¾Ú¤ÀªR¡G
-
-°ò©ó·~°È¼Æ¾Ú¥Í¦¨¹Ïªí©M³ø§i¡C
-
-³¡¸p¸}¥»¡G
-
-¬°À³¥Îµ{¦¡´£¨Ñ¦Û°Ê¤Æ³¡¸p¨ì IIS¡BAzure ©Î Docker µ¥¥­¥xªº¸}¥»¡C
-
-³\¥iÃÒ
-
-¦¹±M®×¦b MIT ³\¥iÃÒ¤Uµo¥¬¡C¸Ô±¡½Ğ°Ñ¾\ LICENSE ÀÉ®×¡C
-
-§Æ±æ³o¥÷ README.md ¹ï±z¦³©ÒÀ°§U¡I±z¥i¥H±N¨ä½Æ»s¨ì±zªº GitHub ±M®×®Ú¥Ø¿ı¤Uªº README.md ÀÉ®×¤¤¡C°O±o±N https://github.com/±zªºGitHub¨Ï¥ÎªÌ¦WºÙ/MerchantBackend.git ´À´«¬°±z¹ê»ÚªºÀx¦s®wÃì±µ¡C
+è§’è‰²èˆ‡æ¬Šé™ï¼š
+Manager (ç®¡ç†å“¡)ï¼š æ“æœ‰æ‰€æœ‰å¾Œå°åŠŸèƒ½çš„å®Œæ•´æ¬Šé™ (ä½¿ç”¨è€…ç®¡ç†ã€å•†å“ CRUDã€åˆ†é¡ CRUDã€æ¨™ç±¤ CRUDã€ç¨½æ ¸æ—¥èªŒæŸ¥çœ‹ã€å€‹äººå¸³æˆ¶ç®¡ç†)ã€‚
+Editor (ç·¨è¼¯è€…)ï¼š æ“æœ‰å•†å“ç®¡ç†ã€åˆ†é¡æŸ¥çœ‹ã€æ¨™ç±¤æŸ¥çœ‹ã€å€‹äººå¸³æˆ¶ç®¡ç†çš„æ¬Šé™ã€‚ç„¡æ³•è¨ªå•ä½¿ç”¨è€…ç®¡ç†å’Œç¨½æ ¸æ—¥èªŒã€‚
+User (ä¸€èˆ¬ä½¿ç”¨è€…)ï¼š ç„¡æ³•ç™»å…¥æ­¤å¾Œå°ç³»çµ±ã€‚
+å°ˆæ¡ˆçµæ§‹æ¦‚è¦½ ğŸ“
+Controllers/: ASP.NET Core MVC æ§åˆ¶å™¨ï¼Œè™•ç† HTTP è«‹æ±‚å’Œæ¥­å‹™é‚è¼¯ã€‚
+Models/: åŒ…å«æ‰€æœ‰ ViewModels (ä¾‹å¦‚ UserViewModel, ProductCreateViewModel ç­‰) å’Œä¸€äº›é€šç”¨å¯¦é«” (AuditLog, UserProfile)ã€‚
+Models/Products/: åŒ…å«å•†å“ç›¸é—œçš„å¯¦é«”æ¨¡å‹ (Product, ProductImage, Category, Tag, ProductTag)ã€‚
+Data/: åŒ…å«è³‡æ–™åº«ä¸Šä¸‹æ–‡ (ApplicationDbContext) å’Œ Entity Framework Core é·ç§»æª”æ¡ˆã€‚
+Services/: åŒ…å«æ‡‰ç”¨ç¨‹å¼æœå‹™ï¼Œä¾‹å¦‚ IAuditService å’Œ AuditServiceã€‚
+Identity/: åŒ…å«æ“´å……çš„ ApplicationUser (å¦‚æœæœªä¾†æ±ºå®šæ“´å…… IdentityUser)ã€‚
+IdentityLocalizations/: åŒ…å«è‡ªå®šç¾©çš„ IdentityErrorDescriberï¼Œç”¨æ–¼ä¸­æ–‡åŒ– Identity çš„éŒ¯èª¤è¨Šæ¯ã€‚
+SeedData/: åŒ…å« DbInitializer é¡åˆ¥ï¼Œç”¨æ–¼è³‡æ–™åº«çš„åˆå§‹æ•¸æ“šç¨®å­ã€‚
+Views/: åŒ…å« Razor View æª”æ¡ˆï¼Œç”¨æ–¼æ¸²æŸ“ä½¿ç”¨è€…ä»‹é¢ã€‚
+wwwroot/: éœæ…‹æª”æ¡ˆå­˜æ”¾è™• (CSS, JavaScript, åœ–ç‰‡ï¼Œä¾‹å¦‚ images/products)ã€‚
+appsettings.json: æ‡‰ç”¨ç¨‹å¼é…ç½®æª”æ¡ˆ (è³‡æ–™åº«é€£æ¥å­—ä¸²ã€æª”æ¡ˆä¸Šå‚³è·¯å¾‘ç­‰)ã€‚
+æœªä¾†å¯èƒ½çš„æ“´å±• (Roadmap) ğŸ—ºï¸
+ä½¿ç”¨è€…ç€è¦½ç¶²ç«™ (é›»å•†å‰å°)ï¼š
+åŸºæ–¼ Web APIï¼š å»ºç«‹ç¨ç«‹çš„ ASP.NET Core Web API å°ˆæ¡ˆï¼Œæä¾›è³‡æ–™çµ¦å‰ç«¯æ¡†æ¶ (React, Angular, Vue.js ç­‰) æ§‹å»ºçš„é›»å•†å‰å°ã€‚
+JWT èº«ä»½é©—è­‰ï¼š ç‚ºå‰ç«¯ API å¯¦ç¾åŸºæ–¼ JWT çš„èº«ä»½é©—è­‰å’Œæˆæ¬Šã€‚
+é›»å­éƒµä»¶é©—è­‰èˆ‡é€šçŸ¥ï¼š
+ç‚ºä½¿ç”¨è€…è¨»å†Šã€å¯†ç¢¼é‡è¨­ã€é›»å­éƒµä»¶è®Šæ›´ç­‰æ“ä½œé›†æˆé›»å­éƒµä»¶ç™¼é€åŠŸèƒ½ã€‚
+ç´°ç²’åº¦æ¬Šé™ç®¡ç†ï¼š
+åŸºæ–¼è²æ˜ (Claims) æˆ–ç­–ç•¥ (Policies) å¯¦ç¾æ›´ç´°ç·»çš„æ¬Šé™æ§åˆ¶ã€‚
+å•†å“å¤šè®Šæ•¸/SKU ç®¡ç†ï¼š
+æ”¯æ´ä¸åŒé¡è‰²ã€å°ºå¯¸ç­‰å•†å“è®Šæ•¸çš„åº«å­˜ç®¡ç†ã€‚
+è¨‚å–®ç®¡ç†ç³»çµ±ï¼š
+æ·»åŠ è¨‚å–®å‰µå»ºã€è™•ç†ã€è¿½è¹¤ã€é€€æ¬¾ç­‰åŠŸèƒ½ã€‚
+å®¢æˆ¶æœå‹™æ¨¡çµ„ï¼š
+ç®¡ç†å®¢æˆ¶è«®è©¢ã€æŠ•è¨´ç­‰ã€‚
+å ±è¡¨èˆ‡æ•¸æ“šåˆ†æï¼š
+åŸºæ–¼æ¥­å‹™æ•¸æ“šç”Ÿæˆåœ–è¡¨å’Œå ±å‘Šã€‚
+éƒ¨ç½²è…³æœ¬ï¼š
+ç‚ºæ‡‰ç”¨ç¨‹å¼æä¾›è‡ªå‹•åŒ–éƒ¨ç½²åˆ° IISã€Azure æˆ– Docker ç­‰å¹³å°çš„è…³æœ¬ã€‚
+è¨±å¯è­‰ âš–ï¸
+æ­¤å°ˆæ¡ˆåœ¨ MIT è¨±å¯è­‰ä¸‹ç™¼å¸ƒã€‚è©³æƒ…è«‹åƒé–± LICENSE æª”æ¡ˆã€‚
