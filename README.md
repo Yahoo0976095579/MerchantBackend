@@ -110,9 +110,10 @@ JSON
 執行資料庫遷移：
 在專案的根目錄下 (即 MerchantBackend.csproj 所在資料夾)，執行以下命令來創建所有資料庫表和關聯：
 
-Bash
+```bash
 
 dotnet ef database update
+```
 這會自動執行所有待處理的遷移 (InitialIdentitySetup, AddAuditLogTable, AddUserProfileTable, AddCategoriesAndTagsTables, AddProductsAndRelations)。
 
 ### 3. 種子初始數據 🌱
@@ -146,37 +147,57 @@ dotnet run
 
 角色與權限：
 Manager (管理員)： 擁有所有後台功能的完整權限 (使用者管理、商品 CRUD、分類 CRUD、標籤 CRUD、稽核日誌查看、個人帳戶管理)。
+
 Editor (編輯者)： 擁有商品管理、分類查看、標籤查看、個人帳戶管理的權限。無法訪問使用者管理和稽核日誌。
+
 User (一般使用者)： 無法登入此後台系統。
-專案結構概覽 📁
+
+### 專案結構概覽 📁
+
 Controllers/: ASP.NET Core MVC 控制器，處理 HTTP 請求和業務邏輯。
+
 Models/: 包含所有 ViewModels (例如 UserViewModel, ProductCreateViewModel 等) 和一些通用實體 (AuditLog, UserProfile)。
+
 Models/Products/: 包含商品相關的實體模型 (Product, ProductImage, Category, Tag, ProductTag)。
+
 Data/: 包含資料庫上下文 (ApplicationDbContext) 和 Entity Framework Core 遷移檔案。
+
 Services/: 包含應用程式服務，例如 IAuditService 和 AuditService。
+
 Identity/: 包含擴充的 ApplicationUser (如果未來決定擴充 IdentityUser)。
+
 IdentityLocalizations/: 包含自定義的 IdentityErrorDescriber，用於中文化 Identity 的錯誤訊息。
+
 SeedData/: 包含 DbInitializer 類別，用於資料庫的初始數據種子。
+
 Views/: 包含 Razor View 檔案，用於渲染使用者介面。
+
 wwwroot/: 靜態檔案存放處 (CSS, JavaScript, 圖片，例如 images/products)。
+
 appsettings.json: 應用程式配置檔案 (資料庫連接字串、檔案上傳路徑等)。
-未來可能的擴展 (Roadmap) 🗺️
+
+### 未來可能的擴展 (Roadmap) 🗺️
 使用者瀏覽網站 (電商前台)：
+
 基於 Web API： 建立獨立的 ASP.NET Core Web API 專案，提供資料給前端框架 (React, Angular, Vue.js 等) 構建的電商前台。
+
 JWT 身份驗證： 為前端 API 實現基於 JWT 的身份驗證和授權。
-電子郵件驗證與通知：
-為使用者註冊、密碼重設、電子郵件變更等操作集成電子郵件發送功能。
-細粒度權限管理：
-基於聲明 (Claims) 或策略 (Policies) 實現更細緻的權限控制。
-商品多變數/SKU 管理：
-支援不同顏色、尺寸等商品變數的庫存管理。
-訂單管理系統：
-添加訂單創建、處理、追蹤、退款等功能。
-客戶服務模組：
-管理客戶諮詢、投訴等。
-報表與數據分析：
-基於業務數據生成圖表和報告。
+
+電子郵件驗證與通知：為使用者註冊、密碼重設、電子郵件變更等操作集成電子郵件發送功能。
+
+細粒度權限管理：基於聲明 (Claims) 或策略 (Policies) 實現更細緻的權限控制。
+
+商品多變數/SKU 管理：支援不同顏色、尺寸等商品變數的庫存管理。
+
+訂單管理系統：添加訂單創建、處理、追蹤、退款等功能。
+
+客戶服務模組：管理客戶諮詢、投訴等。
+
+報表與數據分析：基於業務數據生成圖表和報告。
+
 部署腳本：
 為應用程式提供自動化部署到 IIS、Azure 或 Docker 等平台的腳本。
+
 許可證 ⚖️
+
 此專案在 MIT 許可證下發布。詳情請參閱 LICENSE 檔案。
