@@ -30,8 +30,8 @@ namespace MerchantBackend.SeedData
             }
 
             // 創建 Manager 帳號
-            string managerUserEmail = "yahoo0976095579@gmail.com"; // 設定你的 Manager 電子郵件
-            string managerPassword = "Mm@102050"; // 設定你的 Manager 密碼，必須符合 Identity 策略
+            string managerUserEmail = "admin@example.com"; // 設定你的 Manager 電子郵件
+            string managerPassword = "YourSecurePassword123!"; // 設定你的 Manager 密碼，必須符合 Identity 策略
             string managerDisplayName = "系統管理員"; // <--- 定義 Manager 的顯示名稱
 
             if (await userManager.FindByEmailAsync(managerUserEmail) == null)
